@@ -9,3 +9,5 @@
         public decimal TotalCost { get; set; }
     }
 }
+
+

@@ -7,3 +7,6 @@
         public int IdUser { get; set; }
     }
 }
+
+
+// Alterar o tipo dos Ids para Guid "Id = Guid.NewGuid()"
