@@ -20,12 +20,15 @@ namespace DevFreela.API.Controllers
 
         // GET api/projects?search=crm
         [HttpGet]
-        public IActionResult Get(string search = "")
+        public IActionResult Get(string search = "", int page = 0, int size = 3)
         {
             var projects = _context.Projects
                 .Include(p => p.Client)   
                 .Include(p => p.Freelancer)   
-                .Where(p => !p.isDeleted).ToList();
+                .Where(p => !p.isDeleted && (search == "" || p.Title.Contains(search) || p.Description.Contains(search)))  // Ele irá buscar por todos quando for vazio, pelo titulo ou pela descrição
+                .Skip(page * size)
+                .Take(size)
+                .ToList();
 
             var model = projects.Select(ProjectItemViewModel.FromEntity).ToList();
             return Ok(model);
