@@ -23,7 +23,7 @@ namespace DevFreela.API.Controllers
             var projects = _context.Projects
                 .Include(p => p.Client)   
                 .Include(p => p.Freelancer)   
-                .Where(p => !p.isDeleted && (search == "" || p.Title.Contains(search) || p.Description.Contains(search)))  // Ele irá buscar por todos quando for vazio, pelo titulo ou pela descrição
+                .Where(p => !p.IsDeleted && (search == "" || p.Title.Contains(search) || p.Description.Contains(search)))  // Ele irá buscar por todos quando for vazio, pelo titulo ou pela descrição
                 .Skip(page * size)
                 .Take(size)
                 .ToList();

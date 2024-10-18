@@ -50,7 +50,7 @@ public class ProjectService : IProjectService
         var projects = _context.Projects
             .Include(p => p.Client)
             .Include(p => p.Freelancer)
-            .Where(p => !p.isDeleted).ToList();
+            .Where(p => !p.IsDeleted).ToList();
 
         var model = projects.Select(ProjectItemViewModel.FromEntity).ToList();
 
