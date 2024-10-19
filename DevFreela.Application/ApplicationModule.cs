@@ -1,5 +1,4 @@
 using DevFreela.Application.Services;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace DevFreela.Application;

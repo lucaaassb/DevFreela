@@ -46,6 +46,9 @@ namespace DevFreela.Infrastructure.Migrations
                     b.Property<int>("IdFreelancer")
                         .HasColumnType("int");
 
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime?>("StartedAt")
                         .HasColumnType("datetime2");
 
@@ -58,9 +61,6 @@ namespace DevFreela.Infrastructure.Migrations
 
                     b.Property<decimal>("TotalCost")
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<bool>("isDeleted")
-                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -92,17 +92,14 @@ namespace DevFreela.Infrastructure.Migrations
                     b.Property<int>("IdUser")
                         .HasColumnType("int");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("isDeleted")
+                    b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
 
                     b.HasIndex("IdProject");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("IdUser");
 
                     b.ToTable("ProjectComments");
                 });
@@ -122,7 +119,7 @@ namespace DevFreela.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("isDeleted")
+                    b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
@@ -155,7 +152,7 @@ namespace DevFreela.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("isDeleted")
+                    b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
@@ -180,7 +177,7 @@ namespace DevFreela.Infrastructure.Migrations
                     b.Property<int>("IdUser")
                         .HasColumnType("int");
 
-                    b.Property<bool>("isDeleted")
+                    b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
@@ -221,8 +218,8 @@ namespace DevFreela.Infrastructure.Migrations
 
                     b.HasOne("DevFreela.Core.Entities.User", "User")
                         .WithMany("Comments")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .HasForeignKey("IdUser")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Project");
