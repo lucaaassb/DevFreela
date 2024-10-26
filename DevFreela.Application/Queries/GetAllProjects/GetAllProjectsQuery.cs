@@ -7,11 +7,3 @@ public class GetAllProjectsQuery : IRequest<ResultViewModel<List<ProjectItemView
 {   
 
 }
-
-public class GettAllProjectsHandler : IRequestHandler<GetAllProjectsQuery, ResultViewModel<List<ProjectItemViewModel>>>
-{
-    public Task<ResultViewModel<List<ProjectItemViewModel>>> Handle(GetAllProjectsQuery request, CancellationToken cancellationToken)
-    {
-        throw new NotImplementedException();
-    }
-}

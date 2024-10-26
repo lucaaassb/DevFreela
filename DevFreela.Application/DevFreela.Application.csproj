@@ -16,10 +16,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Queries\GetProjectById\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <Compile Remove="Queries\GetAllProjects.cs" />
     </ItemGroup>
 
