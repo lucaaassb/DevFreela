@@ -11,4 +11,16 @@
       <ProjectReference Include="..\DevFreela.Infrastructure\DevFreela.Infrastructure.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="MediatR" Version="12.4.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Queries\GetProjectById\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="Queries\GetAllProjects.cs" />
+    </ItemGroup>
+
 </Project>

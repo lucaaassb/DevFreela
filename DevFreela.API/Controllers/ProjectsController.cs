@@ -1,6 +1,5 @@
 ﻿using DevFreela.Application.Models;
 using DevFreela.Application.Services;
-using DevFreela.Infrastructure.Persistence;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DevFreela.API.Controllers
@@ -9,11 +8,9 @@ namespace DevFreela.API.Controllers
     [ApiController]
     public class ProjectsController : ControllerBase
     {
-        private readonly DevFreelaDbContext _context;
         private readonly IProjectService _service;
-        public ProjectsController(DevFreelaDbContext context, IProjectService service)
+        public ProjectsController(IProjectService service)
         {
-            _context = context;
             _service = service;
         }
 
